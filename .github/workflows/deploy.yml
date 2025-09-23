@@ -1,8 +1,7 @@
-name: Deploy Vite site to GitHub Pages
+name: (disabled) Deploy Vite site to GitHub Pages
 
+# Disabled: No automatic triggers. Run manually only if needed.
 on:
-  push:
-    branches: [ main ]
   workflow_dispatch:
 
 permissions:
@@ -41,13 +40,4 @@ jobs:
         with:
           path: dist
 
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+  # Deployment job removed to avoid any server-side auto-deploy configuration.
